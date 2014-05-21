@@ -1,4 +1,12 @@
 Maylogs::Application.routes.draw do
+  get "static/home"
+
+  get "static/search"
+
+  get "static/reference"
+
+  get "static/about"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
