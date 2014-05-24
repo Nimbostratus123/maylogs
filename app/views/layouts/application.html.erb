@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Maylogs <%= yield(:title) %></title>
+  <title><%= title_helper(@title) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+	<header>
+		
+		<h1><%= link_to 'MAYLOGS', root_path %></h1>
+		
+		<nav>
+			<li><%= link_to 'Reference', reference_path %></li>
+			<li><%= link_to 'About', about_path %></li>
+			<li><%= link_to 'Search', '#' %></li>
+			<li><%= link_to 'Log In', '#' %></li>
+		</nav>
+		
+	</header>
+
+
+	<section id = "<%= @page_id %>">
+
+	<%= yield %>
+
+	</section>
+
+	<footer>
+		<div>
+		
+		<p>Copyright 2014 — <span>Charles Chamberlain</span><p>
+
+		</div>
+	</footer>
 
 </body>
 </html>

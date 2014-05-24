@@ -1,4 +1,5 @@
 Maylogs::Application.routes.draw do
+	
   get "static/home"
 
   get "static/search"
@@ -6,6 +7,9 @@ Maylogs::Application.routes.draw do
   get "static/reference"
 
   get "static/about"
+	
+	match 'reference', to: 'static#reference'
+	match 'about', to: 'static#about'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -56,7 +60,7 @@ Maylogs::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'static#home'
 
   # See how all your routes lay out with "rake routes"
 
