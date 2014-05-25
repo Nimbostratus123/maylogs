@@ -36,7 +36,7 @@ a {
 
 /* Home Main Section */
 
-section#home, section#about {
+#home, #about {
 	width: 80%;
 	margin: auto;
 	margin-top:50px;
@@ -46,20 +46,24 @@ section#home, section#about {
 	text-align: center;
 }
 
-section#home p {
+#home p {
 	color: black;
 	text-decoration: line-through;
 }
 
-section#home p#real {
+#home p#real {
 	text-decoration: none;
 }
 
-section#home p#real a {
+#home p#real a {
 	color:black;
 }
 
-section#home h1 {
+#home p#real a:hover {
+	color: #9F3;
+}
+
+#home h1 {
 	font-size: 45px;
 }
 
@@ -130,4 +134,105 @@ footer {
 
 footer div {
 	border-top: #9F3 solid 1px;
+}
+
+
+
+/* For the Debug Box */
+
+pre.debug_dump {
+	background: #eee;
+	border: 1px solid #ccc;
+	margin: 30px;
+	margin-top: 90px;
+	padding: 10px;
+}
+
+
+
+/* Sign Up Page */
+
+#sign_up {
+	margin: 20px;
+	padding: 40px;
+	border-radius: 10px;
+	background: #f0f0f0;
+}
+
+#sign_up h1 {
+	font-size: 35px;
+	position:relative;
+	top: -30px;
+	border-bottom: 1px solid #9F3;
+
+}
+
+#sign_up_form {
+	position:relative;
+	top: -30px;
+	left:30px;
+}
+
+#sign_up_form input {
+	font-size: 20px;
+	border: 1px solid black;
+	border-radius:5px;
+}
+
+#sign_up_form #submit_button {
+	font-size: 15px;
+	background:white;
+	margin-top: 10px;
+	padding-right:8px;
+}
+
+
+/* Error Messages */
+
+.field_with_errors {
+	color: #9F3;
+	padding: 0px;
+	margin:0px;
+}
+
+#sign_up_form div.field_with_errors input {
+	border: solid 1px #9F3;
+}
+
+span.error_designation {
+	color:#9F3;
+}
+
+#error_log ul {
+	font-size: 12px;
+	line-height: 96%;
+}
+
+
+
+/* Flash Style */
+
+.flash {
+	margin: auto;
+	margin-top:20px;
+	width:70%;
+	padding: 10px;
+	text-align:center;
+	border-radius:10px;
+	color: white;
+}
+
+.flash-success {
+	background: #A3FF85;
+	text-shadow: 0px 0px 3px #19A319;
+}
+
+.flash-warning {
+	background: #FFFF66;
+	text-shadow: 0px 0px 3px #999900;
+}
+
+.flash-error {
+	background: #FF4D4D;
+	text-shadow: 0px 0px 3px #CC0000;
 }

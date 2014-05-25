@@ -24,11 +24,20 @@
 	</header>
 
 
+	<% flash.each do |key, value| %>
+	<div class = "flash flash-<%= key %>">
+		<%= value %>
+	</div>
+	<% end %>
+	
+
 	<section id = "<%= @page_id %>">
 
 	<%= yield %>
 
 	</section>
+
+  	<%= debug(params) if Rails.env.development? %>
 
 	<footer>
 		<div>
