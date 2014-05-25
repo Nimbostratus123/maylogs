@@ -1,5 +1,7 @@
 Maylogs::Application.routes.draw do
 	
+  get "users/new"
+
   get "static/home"
 
   get "static/search"
@@ -10,6 +12,7 @@ Maylogs::Application.routes.draw do
 	
 	match 'reference', to: 'static#reference'
 	match 'about', to: 'static#about'
+	match 'signup', to: 'users#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

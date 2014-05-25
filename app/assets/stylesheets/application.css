@@ -34,14 +34,13 @@ a {
 
 
 
-/* Home Main Section*/
+/* Home Main Section */
 
-section#home {
+section#home, section#about {
 	width: 80%;
 	margin: auto;
 	margin-top:50px;
-	padding: 0px 0px;
-	height: 220px;
+	padding: 10px 0px 30px 0px;
 	background: #eee;
 	border-radius: 15px;
 	text-align: center;
@@ -62,7 +61,6 @@ section#home p#real a {
 
 section#home h1 {
 	font-size: 45px;
-	padding-top: 32px;
 }
 
 
@@ -101,11 +99,20 @@ header {
 	top:-10px;
 }
 
+
 header h1 {
 	font-size: 26px;
 	position:relative;
 	top:-9px;
 	left:20px;
+}
+
+header #line {
+	position:absolute;
+	width:100%;
+	top: 2px;
+	left:0px;
+	border-bottom:1px solid #9F3;
 }
 
 

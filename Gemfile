@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.6'
 
+gem 'bcrypt-ruby', '3.0.1'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -10,6 +12,10 @@ group :development, :test do
   gem 'rspec-rails', '2.11.0'
   gem 'guard-rspec', '1.2.1'
 	gem 'rb-fsevent', :require => false
+end
+
+group :development do 
+	gem 'annotate', '2.5.0'
 end
 
 # Gems used only for assets and not required
