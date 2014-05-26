@@ -36,14 +36,18 @@ a {
 
 /* Home Main Section */
 
-#home, #about {
-	width: 80%;
+#home, #about, #reference {
+	width: 75%;
 	margin: auto;
 	margin-top:50px;
-	padding: 10px 0px 30px 0px;
+	padding: 10px 30px 30px 30px;
 	background: #eee;
 	border-radius: 15px;
 	text-align: center;
+}
+
+#about, #reference {
+	text-align: left;
 }
 
 #home p {
@@ -67,6 +71,11 @@ a {
 #home h1 {
 	font-size: 45px;
 }
+
+#reference h1, #about h1 {
+	font-size: 30px;
+	text-align: center;
+} 
 
 
 /* Header */
