@@ -13,3 +13,4 @@ Feature: Logging In
 		Then they should see their profile page
 			And they should see a log out link
 		
+		

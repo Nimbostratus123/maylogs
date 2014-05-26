@@ -1,7 +1,7 @@
 
 <h1><%= @title %></h1>
 
-<div id = 'log_in_form'>
+<div id = 'log_in_form' class = 'basic_form' >
 	<%= form_for(:session, url: sessions_path) do |t| %>
 		
 		<div><%= t.label :email %></div>
