@@ -13,10 +13,11 @@ class UsersController < ApplicationController
 	end
 	
 	def create
-		
 		@user = User.new(params[:user])
+		@user.username.downcase
 		
 		if @user.save
+			sign_in @user
 			flash[:success] = 'Welcome to Maylogs!'
 			redirect_to @user
 		else

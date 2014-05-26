@@ -2,6 +2,9 @@ Maylogs::Application.routes.draw do
 	
 	resources :users
 	
+	resources :sessions, only: [:new, :create, :destroy]
+	
+	root :to => 'static#home'
 
   get "static/home"
 
@@ -14,6 +17,9 @@ Maylogs::Application.routes.draw do
 	match 'reference', to: 'static#reference'
 	match 'about', to: 'static#about'
 	match 'signup', to: 'users#new'
+	match 'log_in', to: 'sessions#new'
+	#match 'loggin_in', to: 'sessions#create'
+	match 'log_out', to: 'sessions#destroy'#, via: :delete
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -28,7 +34,8 @@ Maylogs::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
+	
+	
   # Sample resource route with options:
   #   resources :products do
   #     member do
@@ -64,7 +71,7 @@ Maylogs::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'static#home'
+
 
   # See how all your routes lay out with "rake routes"
 

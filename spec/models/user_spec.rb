@@ -37,6 +37,8 @@ describe User do
 	
 	it { should respond_to(:authenticate) }
 	
+	it { should respond_to(:remember_token) }
+	
 	it { should be_valid }
 	
 	
@@ -69,6 +71,14 @@ describe User do
 		before { @user.username = 'Marry Keller' }
 		
 		it { should_not be_valid }
+		
+	end
+	
+	describe "remember token" do
+		
+		before { @user.save }
+		
+		its(:remember_token) { should_not be_blank } 
 		
 	end
 	

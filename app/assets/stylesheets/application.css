@@ -49,6 +49,7 @@ a {
 #home p {
 	color: black;
 	text-decoration: line-through;
+	font-size: 20px;
 }
 
 #home p#real {
@@ -150,16 +151,16 @@ pre.debug_dump {
 
 
 
-/* Sign Up Page */
+/* Sign Up Page, Log In Page */
 
-#sign_up {
+#sign_up, #log_in {
 	margin: 20px;
 	padding: 40px;
 	border-radius: 10px;
 	background: #f0f0f0;
 }
 
-#sign_up h1 {
+#sign_up h1, #log_in h1 {
 	font-size: 35px;
 	position:relative;
 	top: -30px;
@@ -167,23 +168,33 @@ pre.debug_dump {
 
 }
 
-#sign_up_form {
+#sign_up_form, #log_in_form {
 	position:relative;
 	top: -30px;
 	left:30px;
 }
 
-#sign_up_form input {
+#sign_up_form input, #log_in input {
 	font-size: 20px;
 	border: 1px solid black;
 	border-radius:5px;
 }
 
-#sign_up_form #submit_button {
+#sign_up_form #submit_button, #log_in #submit_button {
 	font-size: 15px;
 	background:white;
 	margin-top: 10px;
 	padding-right:8px;
+}
+
+#log_in a {
+	color:black;
+	text-decoration: underline;
+}
+
+#log_in a:hover {
+	color:#9F3;
+	text-decoration:none;
 }
 
 
