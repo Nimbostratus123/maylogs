@@ -1,4 +1,4 @@
 module ApplicationHelper
 	include StaticHelper
-	include SessionHelper
+	include SessionsHelper
 end
