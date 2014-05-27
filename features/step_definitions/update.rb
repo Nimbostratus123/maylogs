@@ -7,8 +7,13 @@ Given /^a user has an account$/ do
 												title: 'The Best of Clouds',
 												password: 'foobar',
 												password_confirmation: 'foobar')
+end
 
-
+And /^the user has logged in$/ do
+	visit log_in_path
+	fill_in 'Email', with: @user.email
+	fill_in 'Password', with: @user.password
+	click_on 'Enter the Madness'
 end
 
 
@@ -17,7 +22,7 @@ And /^the user visits the edit page$/ do
 end
 
 When /^they submit invalid information$/ do
-	click_button 'Change Identity'
+	click_on 'Change Identity'
 end
 
 Then /^they should see errors$/ do 
@@ -56,9 +61,9 @@ Given /^an anonymous user$/ do
 end
 
 When /^they submit a put request without authorization$/ do
-	get edit_user_path(@existing_user)
+	visit edit_user_path(@existing_user)
 end
 
 Then /^they should be asked to log in$/ do
-	page.should have_selector "h1", text: 'Log In'
+	page.should have_selector "section#log_in"
 end

@@ -1,6 +1,14 @@
 class StaticController < ApplicationController
   def home
-		@page_id = 'home'
+		unless signed_in?
+			@page_id = 'home'
+		else
+			params[:id] = current_user.id
+			@user = current_user
+			@title = @user.title
+			@page_id = "user_show"
+			render template: 'users/show'
+		end
   end
 
   def search

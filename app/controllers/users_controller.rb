@@ -5,15 +5,20 @@ class UsersController < ApplicationController
 	
 	
   def new
-		@title = 'Sign Up'
-		@page_id = 'sign_up'
-		@user = User.new()
+		if signed_in?
+			flash[:error] = "You are already logged into an account."
+			redirect_to root_url
+		else
+			@title = 'Sign Up'
+			@page_id = 'sign_up'
+			@user = User.new()
+		end
   end
 	
 	def show
 		@user = User.find(params[:id])
 		@title = @user.title
-		@page_id = "user_#{@user.id}"
+		@page_id = "user_show"
 	end
 	
 	def create
