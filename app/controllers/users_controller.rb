@@ -49,6 +49,8 @@ class UsersController < ApplicationController
 			sign_in @user
 			redirect_to @user
 		else
+			@title = 'Settings'
+			@page_id = 'settings'
 			render 'edit'
 		end
 	end

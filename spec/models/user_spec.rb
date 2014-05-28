@@ -39,6 +39,8 @@ describe User do
 	
 	it { should respond_to(:remember_token) }
 	
+	it { should respond_to(:pages) }
+	
 	it { should be_valid }
 	
 	

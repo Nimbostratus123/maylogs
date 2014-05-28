@@ -11,11 +11,12 @@ class SessionsController < ApplicationController
 		
 		if user && user.authenticate(params[:session][:password])
 			sign_in user
-			redirect_back_or user
+			redirect_back_or root_url
 		else
 			@title = "Log In"
 			@page_id = 'log_in'
-			flash.now[:warning] = 'Invalid Username/Password Combination'
+			flash.now[:warning] = 'Invalid Username/
+			Password Combination'
 			render 'new'
 		end
 	end

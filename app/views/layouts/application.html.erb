@@ -15,7 +15,7 @@
 		
 		<h1><%= link_to 'MAYLOGS', root_path %></h1>
 		
-		<nav>
+		<nav style = "<% if signed_in? %>right: 127px;<% end %>">
 			<% if signed_in? %>
 			
 			<% end %>
@@ -25,7 +25,8 @@
 			<% unless signed_in? %>
 			<li><%= link_to 'Log In', log_in_path %></li>
 			<% else %>
-			<li class = 'dropdown_trigger'><%= link_to 'Account', '#' %></li>
+			<li class = 'dropdown_trigger must_light_up'><%= link_to 'Account', '#' %></li>
+			<div class = 'dropdown_trigger target_zone'></div>
 			<ul class = 'dropdown'>
 				<li><%= link_to 'Profile', user_path(current_user) %></li>
 				<li><%= link_to 'Settings', edit_user_path(current_user) %></li>

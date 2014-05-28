@@ -8,8 +8,8 @@
 $ ->
 	$('.dropdown').css 'opacity', '0'
 	$('.dropdown').slideUp()
-	$('.dropdown_trigger').click ->
+	$('.dropdown_trigger').hover ->
 		$('.dropdown').css 'opacity', '1'
-		$('.dropdown').slideToggle('fast')
+		$('.dropdown').slideDown('fast')
 	$('nav').mouseleave -> 
 		$('.dropdown').slideUp('fast')

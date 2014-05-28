@@ -1,3 +1,7 @@
 <h1><%= @user.title.split(" ").each { |t| t.capitalize }.join(' ') %></h1>
 
-<p>This is a user show page. The final purpose will be to edit the user's blog and add pages etc.</p>
+<nav id = 'edit_bar'>
+	<li><%= link_to 'New Page', '#' %></li>
+	<li><%= link_to 'Delete Page', '#' %></li>
+	<li><%= link_to 'Choose Home Page', '#' %></li>
+</nav>
