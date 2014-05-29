@@ -1,0 +1,19 @@
+<h1><%= @title %></h1>
+
+<div class = 'basic_form'>
+<%= form_for @page do |f| %>
+	
+	<%= render 'shared/page_error_messages' %>
+	
+	<div><%= f.label :title %></div>
+	<div><%= f.text_field :title, placeholder: " A Great Page" %></div>
+	
+	<div><%= f.label :kind, 'Page Type' %></div>
+	<div><%= f.select(:kind, [['Blog', 'blog'], ['Custom', 'custom']]) %></div>
+	
+	<div><%= f.label :content %></div>
+	<div><%= f.text_area :content, size: '40x5', placeholder: ' The Good, the Bad, and the Bloggers...' %></div>
+	
+	<div><%= f.submit 'Create Page', id: 'submit_button' %></div>
+<% end %>
+</div>

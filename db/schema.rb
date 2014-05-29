@@ -11,19 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140527200447) do
+ActiveRecord::Schema.define(:version => 20140528222848) do
 
   create_table "pages", :force => true do |t|
-    t.string   "type"
     t.string   "content"
     t.string   "title"
     t.integer  "user_id"
-    t.integer  "order"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.string   "kind"
+    t.boolean  "home",       :default => true
   end
 
-  add_index "pages", ["user_id", "order"], :name => "index_pages_on_user_id_and_order"
+  add_index "pages", ["title"], :name => "index_pages_on_title", :unique => true
+  add_index "pages", ["user_id"], :name => "index_pages_on_user_id_and_order"
 
   create_table "users", :force => true do |t|
     t.string   "username"

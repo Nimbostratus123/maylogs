@@ -1,11 +1,19 @@
 class Page < ActiveRecord::Base
-  attr_accessible :content, :title, :type
+  attr_accessible :content, :title, :kind, :home
 	belongs_to :user
 	
-	PAGE_TYPE = /blog|custom/
+	PAGE_KIND = /blog|custom/
 	validates :content, presence: true
-	validates :title, presence: true
-	validates :type, presence: true, format: { with: PAGE_TYPE }
+	validates :title, presence: true, length: { maximum: 50, minimum: 6 }
+	validates :kind, presence: true, format: { with: PAGE_KIND }
 	validates :user_id, presence: true
+	
+	def home?
+		self.home
+	end
+	
+	def home_page?
+		self.home
+	end
 	
 end

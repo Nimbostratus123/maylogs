@@ -1,0 +1,18 @@
+<% @user.pages.each do |page| %>
+<div class = "page_thumb" id = "page_<%= page.id %>">
+	<span><%= page.title %></span>
+	<div class = 'ex_line_out'>
+		<div class = 'ex_line'></div>
+	</div>
+	<div class = 'page_image'>
+		<div class = 'page_top_line'></div>
+		<div class = 'page_line'></div>
+		<div class = 'page_line'></div>
+		<% if page.kind == 'blog' %>
+		<div class = 'page_spacer'></div>
+		<% end %>
+		<div class = 'page_line'></div>
+		<div class = 'page_line'></div>
+	</div>
+</div>
+<% end %>

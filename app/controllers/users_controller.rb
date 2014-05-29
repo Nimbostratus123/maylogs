@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
 	
-	before_filter :signed_in_user, only: [:edit, :update]
-	before_filter :correct_user, only: [:edit, :update]
-	
+	before_filter :signed_in_user, only: [:edit, :show, :update]
+	before_filter :correct_user, only: [:edit, :show, :update]
+			## Show is included in these because
+			## it's not being used as the profile;
+			## it's user home page.
 	
   def new
 		if signed_in?
@@ -31,6 +33,7 @@ class UsersController < ApplicationController
 			redirect_to @user
 		else
 			@page_id = "sign_up"
+			@title = 'Sign Up'
 			render 'new'
 		end
 		

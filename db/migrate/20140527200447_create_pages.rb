@@ -1,10 +1,11 @@
 class CreatePages < ActiveRecord::Migration
   def change
     create_table :pages do |t|
-      t.string :type
+      t.string :kind
       t.string :content
       t.string :title
       t.integer :user_id
+			t.integer :order
 
       t.timestamps
     end

@@ -6,14 +6,15 @@ describe Page do
 	
 	before do
 		@page = user.pages.build(content: "Here's a page!",
-		 title: "First Page", type: 'blog')
+		 title: "First Page", kind: 'blog')
 	end
 	
 	subject { @page }
 	
 	it { should respond_to(:content) }
 	it { should respond_to(:title) }
-	it { should respond_to(:type) }
+	it { should respond_to(:kind) }
+	it { should respond_to(:home) }
 	it { should respond_to(:user_id) }
 	it { should respond_to(:user) }
 	
@@ -31,8 +32,8 @@ describe Page do
 		it { should_not be_valid }
 	end
 	
-	describe 'with an invalid type' do
-		before { @page.type = 'hello, sailor' }
+	describe 'with an invalid kind' do
+		before { @page.kind = 'hello, sailor' }
 		
 		it { should_not be_valid }
 	end

@@ -1,11 +1,10 @@
 
-
-<% if @user.errors.any? %>
+<% if @page.errors.any? %>
 <div id = 'error_log'>
-	<p>This form contains <%= pluralize @user.errors.count, 'error' %> 			</p>
+	<p>This form contains <%= pluralize @page.errors.count, 'error' %> 			</p>
 	
 	<ul>
-		<% @user.errors.full_messages.each do |error| %>
+		<% @page.errors.full_messages.each do |error| %>
 			<% unless error =~ /digest/i %>
 				<li><span class = 'error_designation'>*</span>
 					 <%= error%></li><br />

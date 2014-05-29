@@ -2,23 +2,44 @@ Maylogs::Application.routes.draw do
 	
 	resources :users
 	
+	resources :pages do
+		member do
+			get 'delete'
+			get 'edit'
+			post 'update'
+		end
+		
+		collection do
+			get 'new'
+		end
+	end
+	
 	resources :sessions, only: [:new, :create, :destroy]
 	
 	root :to => 'static#home'
 
   get "static/home"
-
+ 
   get "static/search"
-
+ 
   get "static/reference"
-
+ 
   get "static/about"
 	
+  get "pages/new"
+
+  # get "pages/edit"
+  # 
+  # get "pages/delete"
+	# 
+  # get "pages/update"
+  # 
+  # get "pages/create"
+ 	
 	match 'reference', to: 'static#reference'
 	match 'about', to: 'static#about'
 	match 'signup', to: 'users#new'
 	match 'log_in', to: 'sessions#new'
-	#match 'loggin_in', to: 'sessions#create'
 	match 'log_out', to: 'sessions#destroy'#, via: :delete
 
   # The priority is based upon order of creation:
