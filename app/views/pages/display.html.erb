@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title><%= @title %></title>
+    <%= stylesheet_link_tag    "pages", :media => "all" %>
+ 	<%= javascript_include_tag 		'//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' %>
+  	<%= javascript_include_tag "coffeescript" %>
+  	<%= csrf_meta_tags %>
+</head>
+
+<body>
+
+	<header>
+		<h1><%= @page.user.title %></h1>
+		
+		<% if @correct %>
+			<%= link_to(root_path) do%>
+			<div id="return_button">
+				Back to Maylogs
+			</div>
+			<% end %>
+		<% end %>
+		
+		<nav>
+			<% @page.user.pages.each do |page| %>
+				<li><%= link_to page.title, display_page_path(page) %></li>
+			<% end %>
+		</nav>
+	</header>
+
+	<h1><%= @page.title %></h1>
+
+	<p><%= @page.content %></p>
+
+
+</body>
+</html>

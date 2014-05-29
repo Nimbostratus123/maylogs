@@ -1,9 +1,12 @@
 <h1><%= @user.title.split(" ").each { |t| t.capitalize }.join(' ') %></h1>
 
 <nav id = 'edit_bar'>
-	<li><div><%= link_to 'New Page', new_page_path %></div></li>
-	<li><div><%= link_to 'Delete', '#', id: 'delete_button' %></div></li>
-	<li><div><%= link_to 'Choose Home', '#' %></div></li>
+	<li><div><%= link_to 'New Page', new_page_path,
+		id: 'new_page_link' %></div></li>
+	<li><div><%= link_to 'Delete', '#', 
+		id: 'delete_button' %></div></li>
+	<li><div><%= link_to 'Choose Home', '#', 
+		id: 'home_button' %></div></li>
 	<li><div><%= link_to 'Themes', '#' %></div></li>
 </nav>
 

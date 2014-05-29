@@ -39,6 +39,10 @@ html {
 
 \*                      */
 
+html {
+	min-width:560px;
+}
+
 
 
 
@@ -347,6 +351,14 @@ header nav .target_zone {
 	margin-right: 4.5%;
 }
 
+#edit_bar #new_page_link {
+	cursor:copy;
+}
+
+#edit_bar #home_button {
+	cursor:context-menu;
+}
+
 #edit_bar li a {
 	color: black;
 	position: relative;
@@ -387,7 +399,25 @@ header nav .target_zone {
 	width:205px;
 	text-align:center;
 	float:left;
+	color:black;
 	margin-right:40px;
+	cursor:cell;
+	z-index:10;
+}
+
+.page_link {
+	background:purple;
+	position:relative;
+	left:-50px;
+}
+
+.page_link div {
+	z-index:200;
+	display:inline;
+	float:left;
+	position:absolute;
+	width:234px;
+	height:300px;
 }
 
 .page_thumb .page_image {

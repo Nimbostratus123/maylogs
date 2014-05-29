@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 	before_filter :signed_in_user
-	before_filter :correct_user, only: [:edit, :update, :delete]
+	before_filter :correct_user, only: [:edit, :home_page, :update, :delete]
 	
   def new
 		@page_id = 'new_page'
@@ -25,12 +25,31 @@ class PagesController < ApplicationController
 
   def update
   end
+	
+	def home_page
+		@page = Page.find(params[:id])
+		@page.user.pages.each do |page|
+			page.home = false
+			page.save!
+		end
+		@page.home = true
+		@page.save!
+	end
 
   def delete
 		@page = Page.find(params[:id])
 		@page.destroy()
   end
 	
+	def display
+		@page = Page.find(params[:id])
+		@title = @page.title
+		@page_id = 'page_show'
+		if User.find(Page.find(params[:id]).user_id) == current_user
+			@correct = true 
+		end
+		render layout: false
+	end
 	
 	private
 		

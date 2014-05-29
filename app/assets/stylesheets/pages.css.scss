@@ -1,3 +1,46 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+
+li {
+	display:inline;
+}
+
+a {
+	text-decoration: none;
+}
+
+header {
+	background:black; 
+	h1 {
+		font-size:60px;
+		text-align:center;
+		color:white;
+	}
+}
+
+#return_button {
+	color:white;
+	border:1px solid white;
+	border-radius:0px 5px 5px 0px;
+	-webkit-border-radius:0px 5px 5px 0px;
+	background:blue;
+	padding:10px;
+	display:inline;
+	position:relative;
+	top:-80px;
+	right:10px;
+}
+
+#return_button:hover {
+	color:blue;
+	background:white;
+}
+
+#return_button:active {
+	top:-78px;
+}

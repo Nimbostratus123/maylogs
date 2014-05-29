@@ -3,14 +3,16 @@ Maylogs::Application.routes.draw do
 	resources :users
 	
 	resources :pages do
-		member do
-			get 'delete'
-			get 'edit'
-			post 'update'
-		end
-		
 		collection do
 			get 'new'
+		end
+		
+		member do
+			get 'edit'
+			get 'home_page'
+			get 'display'
+			get 'delete'
+			post 'update'
 		end
 	end
 	
@@ -26,8 +28,8 @@ Maylogs::Application.routes.draw do
  
   get "static/about"
 	
-  get "pages/new"
-
+  # get "pages/new"
+	#
   # get "pages/edit"
   # 
   # get "pages/delete"

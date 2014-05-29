@@ -1,5 +1,11 @@
+
 <% @user.pages.each do |page| %>
 <div class = "page_thumb" id = "page_<%= page.id %>">
+
+	<%= link_to display_page_path(page), class: 'page_link'  do %>
+	<div></div>
+	<% end %>
+	
 	<span><%= page.title %></span>
 	<div class = 'ex_line_out'>
 		<div class = 'ex_line'></div>

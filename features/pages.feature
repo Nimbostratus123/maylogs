@@ -16,10 +16,10 @@ Feature: Pages
 	# 	Then the page should be edited
 	# 
 	# 
-	# Scenario: Choose Home
-	# 	When the user chooses a new home page
-	# 	Then the page should be the home page
-	# 	
+	Scenario: Choose Home
+		When the user chooses a new home page
+		Then the page should be the home page
+		
 	
 	#Scenario: Customize Style
 	
