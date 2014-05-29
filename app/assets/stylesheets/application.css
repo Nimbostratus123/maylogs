@@ -355,9 +355,15 @@ header nav .target_zone {
 	cursor:copy;
 }
 
+/*
+#edit_bar #delete_button {
+	cursor:no-drop;
+}
+
 #edit_bar #home_button {
 	cursor:context-menu;
 }
+*/
 
 #edit_bar li a {
 	color: black;
@@ -408,7 +414,7 @@ header nav .target_zone {
 .page_link {
 	background:purple;
 	position:relative;
-	left:-50px;
+	left:-120px;
 }
 
 .page_link div {
@@ -464,6 +470,10 @@ header nav .target_zone {
 	top:50px;
 }
 
+.page_thumb span {
+	display:block;
+	padding-bottom: 3px;
+}
 
 .page_thumb .page_spacer {
 	background:none;
@@ -492,4 +502,8 @@ header nav .target_zone {
 	padding-right:30px;
 	border-radius:0px;
 	-webkit-border-radius:0px;
+}
+
+#home_page_image {
+	background: lightblue;
 }

@@ -25,14 +25,24 @@ end
 
 # Scenario Choose Home #
 
+Given /^the user has already made a page$/ do
+	@page = @user.pages.create(
+		title: 'Hello There',
+		content: "How are you doing?",
+		home: false,
+		kind: 'blog'
+	)
+end
+
+And /^the user visits the home page$/ do
+	visit root_path
+end 
+
 When /^the user chooses a new home page$/ do
 	click_link 'Choose Home'
-	@page = Page.all.first
-	@page.home = false
-	@page.save!
-	click_on @page.title
+	find("#page_#{@page.id}").click
 end
 
 Then /^the page should be the home page$/ do
-	@page.home.should be_true # or be true?
+	Page.find(@page.id).home.should be_true
 end

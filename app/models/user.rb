@@ -32,6 +32,12 @@ class User < ActiveRecord::Base
 	validates :password_confirmation, presence: true
 	
 	
+	def home_page
+		self.pages.each do |page|
+			return page if page.home
+		end
+	end
+	
 	private
 		
 		def create_remember_token

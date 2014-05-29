@@ -44,17 +44,19 @@ $ ->
 			page_id = $(this).attr('id')
 			page_id = page_id.replace /^page_/, ''
 			$.get "/pages/#{page_id}/delete"
+			$('body').addClass('ajax_completed')
 			delete_on = false
 		if home_on == true # Home Page
 			$('.page_link div').css 'z-index', '200'
 			$('.ex_line').css 'box-shadow', 'none'
 			$('.page_image').css 'background', '#fff'
+			$(this).children(".page_image").css 'background', 'lightblue'
+			$('.ex_line').css 'background', '#9F3'
 			page_id = $(this).attr('id')
 			page_id = page_id.replace /^page_/, ''
 			$.get "/pages/#{page_id}/home_page"
+			$('body').addClass('ajax_completed')
 			home_on = false
-			$('.page_image').css 'background', '#fff'
-			$('.ex_line').css 'background', '#9F3'
 			
 	# Choosing a home page
 	$('#home_button').click ->
@@ -68,7 +70,7 @@ $ ->
 		else
 			home_on = true
 			delete_on = false
-			$('.page_image').css 'background', '#00aaaa'
+			$('.page_image').css 'background', 'lightblue'
 			$('.ex_line').css 'background', 'white'
 			$('.ex_line').css 'box-shadow', '0px 0px 3px #333'
 			$('.page_link div').css 'z-index', '-2'
