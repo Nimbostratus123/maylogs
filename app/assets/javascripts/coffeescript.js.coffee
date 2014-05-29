@@ -33,3 +33,4 @@ $ ->
 			page_id = $(this).attr('id')
 			page_id = page_id.replace /^page_/, ''
 			$.get "/pages/#{page_id}/delete"
+			delete_on = false
