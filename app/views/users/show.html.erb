@@ -3,9 +3,9 @@
 <nav id = 'edit_bar'>
 	<li><div><%= link_to 'New Page', new_page_path,
 		id: 'new_page_link' %></div></li>
-	<li><div><%= link_to 'Delete', 'javascript:;', 
+	<li><div><%= link_to 'Delete', no_link_helper, 
 		id: 'delete_button' %></div></li>
-	<li><div><%= link_to 'Choose Home', 'javascript:;', 
+	<li><div><%= link_to 'Choose Home', no_link_helper, 
 		id: 'home_button' %></div></li>
 	<li><div><%= link_to 'Themes', '#' %></div></li>
 </nav>

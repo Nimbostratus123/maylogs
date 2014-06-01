@@ -14,15 +14,16 @@ Feature: Pages
 	# 	Given the user clicks on a page
 	# 	When the user submits the edit form
 	# 	Then the page should be edited
-	# 
+	
 	
 	
 	# I cannot test ajax, but this works: #
-	# Scenario: Choose Home
-	# 	Given the user has already made a page
-	# 		And the user visits the home page
-	# 	When the user chooses a new home page
-	# 	Then the page should be the home page
+	@javascript
+	Scenario: Choose Home
+		Given the user has already made a page
+			And the user visits the home page
+		When the user chooses a new home page
+		Then the page should be the home page
 		
 	
 	

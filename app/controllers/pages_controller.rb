@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-	before_filter :signed_in_user
+	before_filter :signed_in_user, except: [:display]
 	before_filter :correct_user, only: [:edit, :home_page, :update, :delete]
 	
   def new

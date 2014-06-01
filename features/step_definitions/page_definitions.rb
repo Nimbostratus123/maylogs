@@ -39,8 +39,9 @@ And /^the user visits the home page$/ do
 end 
 
 When /^the user chooses a new home page$/ do
-	click_link 'Choose Home'
+	find('#home_button').click
 	find("#page_#{@page.id}").click
+	wait_for_ajax
 end
 
 Then /^the page should be the home page$/ do

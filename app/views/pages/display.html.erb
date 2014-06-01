@@ -3,33 +3,53 @@
 	<title><%= @title %></title>
     <%= stylesheet_link_tag    "pages", :media => "all" %>
  	<%= javascript_include_tag 		'//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' %>
-  	<%= javascript_include_tag "coffeescript" %>
+	<script src="../../../../jqueryui/js/jquery-1.10.2.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../../jqueryui/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript" charset="utf-8"></script>
+	
+  	<%= javascript_include_tag "pages" %>
   	<%= csrf_meta_tags %>
 </head>
 
 <body>
 
+	<div id = 'main'>
+
 	<header>
-		<h1><%= @page.user.title %></h1>
+		<h1 id = 'drag'><%= @page.user.title %></h1>
 		
 		<% if @correct %>
-			<%= link_to(root_path) do%>
+			<%= link_to(root_path, id: 'return_link') do%>
 			<div id="return_button">
 				Back to Maylogs
 			</div>
 			<% end %>
+		<% else %>
+			<div style = 'opacity:0;' id = 'return_button'></div>
 		<% end %>
+
 		
 		<nav>
-			<% @page.user.pages.each do |page| %>
-				<li><%= link_to page.title, display_page_path(page) %></li>
+			<div id = 'color_beam' class = 'link_class'></div>
+			
+			<% @page.user.pages.each_with_index do |page, index| %>
+				<li <% if index == 0 %>class = 'first_link'<% end %>
+			<% if @page==page %>id = 'current_page_link'<% end %>>
+				<%= link_to page.title, display_page_path(page), id: color_beam_helper(@page, page) %>
+				</li>
+			
 			<% end %>
 		</nav>
 	</header>
+	
 
-	<h1><%= @page.title %></h1>
-
-	<p><%= @page.content %></p>
+	
+	<section>
+		<h1><%= @page.title %></h1>
+	
+		<p><%= @page.content %></p>
+	</section>
+	
+	</div>
 
 
 </body>
