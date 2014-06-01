@@ -29,14 +29,21 @@
 
 		
 		<nav>
+			
+			
 			<div id = 'color_beam' class = 'link_class'></div>
 			
-			<% @page.user.pages.each_with_index do |page, index| %>
-				<li <% if index == 0 %>class = 'first_link'<% end %>
-			<% if @page==page %>id = 'current_page_link'<% end %>>
-				<%= link_to page.title, display_page_path(page), id: color_beam_helper(@page, page) %>
-				</li>
+			<li id = '<% if @page.home %>current_page_link<% end %>'>
+				<%= link_to 'Home', username_path(@page) %>
+			</li>
 			
+			
+			<% @page.user.pages.each_with_index do |page, index| %>
+			<% unless page.home %>
+				<li id = '<% if @page == page %>current_page_link<% end %>'>
+				<%= link_to page.title, page_username_path(page), id: color_beam_helper(@page, page) %>
+				</li>
+			<% end %>
 			<% end %>
 		</nav>
 	</header>

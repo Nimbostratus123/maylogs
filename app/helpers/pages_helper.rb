@@ -14,4 +14,12 @@ module PagesHelper
 		end
 	end
 	
+	def page_username_path(page)
+		 "/#{page.username}/#{page.id}"
+	end
+	
+	def username_path(user_or_page)
+		"/#{user_or_page.username}"
+	end
+	
 end

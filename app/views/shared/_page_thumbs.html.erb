@@ -2,7 +2,7 @@
 <% @user.pages.each do |page| %>
 <div class = "page_thumb" id = "page_<%= page.id %>">
 
-	<%= link_to display_page_path(page), class: 'page_link'  do %>
+	<%= link_to page_username_path(page), class: 'page_link'  do %>
 	<div></div>
 	<% end %>
 	

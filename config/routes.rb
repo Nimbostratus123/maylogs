@@ -44,6 +44,10 @@ Maylogs::Application.routes.draw do
 	match 'log_in', to: 'sessions#new'
 	match 'log_out', to: 'sessions#destroy'#, via: :delete
 
+
+	match ':username/:id' => 'pages#display'
+	match ':username' => 'pages#username_root'
+	
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

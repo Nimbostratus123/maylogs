@@ -10,6 +10,7 @@ class PagesController < ApplicationController
 
   def create
 		@page = current_user.pages.build(params[:page])
+		@page.username = current_user.username
 		if @page.save
 			flash[:success] = 'You have successfully created a page.'
 			redirect_to root_url
@@ -40,6 +41,12 @@ class PagesController < ApplicationController
 		@page = Page.find(params[:id])
 		@page.destroy()
   end
+	
+	def username_root
+		@user = User.find_by_username(params[:username])
+		@page = @user.home_page
+		render 'display', layout: false# page_username_path(User.find_by_username(params[:username]).home_page)
+	end
 	
 	def display
 		@page = Page.find(params[:id])

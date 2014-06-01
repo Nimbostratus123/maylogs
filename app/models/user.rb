@@ -34,8 +34,9 @@ class User < ActiveRecord::Base
 	
 	def home_page
 		self.pages.each do |page|
-			return page if page.home
+			@homepage = page if page.home
 		end
+		@homepage
 	end
 	
 	private

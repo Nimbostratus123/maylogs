@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140529205744) do
+ActiveRecord::Schema.define(:version => 20140601042021) do
 
   create_table "pages", :force => true do |t|
     t.string   "content"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20140529205744) do
     t.datetime "updated_at",                    :null => false
     t.string   "kind"
     t.boolean  "home",       :default => false
+    t.string   "username"
   end
 
   add_index "pages", ["title"], :name => "index_pages_on_title", :unique => true
