@@ -39,6 +39,14 @@ class User < ActiveRecord::Base
 		@homepage
 	end
 	
+	def has_home?
+		if self.home_page
+			true
+		else
+			false
+		end
+	end
+	
 	private
 		
 		def create_remember_token

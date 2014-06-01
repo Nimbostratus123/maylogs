@@ -45,12 +45,31 @@ class PagesController < ApplicationController
 	def username_root
 		@user = User.find_by_username(params[:username])
 		@page = @user.home_page
-		render 'display', layout: false# page_username_path(User.find_by_username(params[:username]).home_page)
+		@title = @page.title
+		@posts = @page.posts
+		@page_id = 'page_show'
+		if User.find_by_username(params[:username]) == current_user
+			@correct = true 
+		end
+		render 'display', layout: false # page_username_path(User.find_by_username(params[:username]).home_page)
+	end
+	
+	def new_post
+		@page = Page.find(params[:page_id])
+		@post = @page.posts.build(content: params[:content], title: params[:title])
+		if @post.save
+			flash[:success] = 'You have successfully posted!'
+			redirect_to display_page_path(@page)
+		else
+			flash[:error] = 'Your post needs a title and content.'
+			redirect_to display_page_path(@page)
+		end
 	end
 	
 	def display
 		@page = Page.find(params[:id])
 		@title = @page.title
+		@posts = @page.posts
 		@page_id = 'page_show'
 		if User.find(Page.find(params[:id]).user_id) == current_user
 			@correct = true 

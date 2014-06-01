@@ -5,6 +5,7 @@ Maylogs::Application.routes.draw do
 	resources :pages do
 		collection do
 			get 'new'
+			post 'new_post'
 		end
 		
 		member do
@@ -37,14 +38,16 @@ Maylogs::Application.routes.draw do
   # get "pages/update"
   # 
   # get "pages/create"
- 	
+
+	
 	match 'reference', to: 'static#reference'
 	match 'about', to: 'static#about'
 	match 'signup', to: 'users#new'
 	match 'log_in', to: 'sessions#new'
 	match 'log_out', to: 'sessions#destroy'#, via: :delete
 
-
+	
+	
 	match ':username/:id' => 'pages#display'
 	match ':username' => 'pages#username_root'
 	

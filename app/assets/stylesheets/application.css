@@ -201,6 +201,7 @@ pre.debug_dump {
 	font-size: 20px;
 	border: 1px solid black;
 	border-radius:5px;
+	padding-left:10px;
 }
 
 .basic_form #submit_button {

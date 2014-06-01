@@ -16,6 +16,10 @@ $ ->
 	$('#color_beam').css 'width', temp_width
 	$('#color_beam').css 'left', proper_left - 2
 	$('#current_page_link').children('a').css 'color', 'black'
+	$('#text_area_pages').focus ->
+		$(this).css 'height', '130px'
+	$('#text_area_pages').focusout ->
+		$(this).css 'height', '49px'
 	
 	$('nav li').mouseenter ->
 		temp_width = $(this).width() + 38

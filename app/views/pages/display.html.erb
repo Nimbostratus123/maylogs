@@ -32,10 +32,11 @@
 			
 			
 			<div id = 'color_beam' class = 'link_class'></div>
-			
+			<% if @page.user.has_home? %>
 			<li id = '<% if @page.home %>current_page_link<% end %>'>
 				<%= link_to 'Home', username_path(@page) %>
 			</li>
+			<% end %>
 			
 			
 			<% @page.user.pages.each_with_index do |page, index| %>
@@ -49,15 +50,56 @@
 	</header>
 	
 
+	<% flash.each do |key, value| %>
+	<div class = "flash flash-<%= key %>">
+		<%= value %>
+	</div>
+	<% end %>
+
 	
-	<section>
-		<h1><%= @page.title %></h1>
+	<section id = 'kind_<%= @page.kind %>'>
 	
-		<p><%= @page.content %></p>
+
+		<% if @page.kind == 'blog' %>
+			
+			<h1><%= @page.title %></h1>
+			
+
+			<p id ='horizontal'><%= @page.content %></p>
+			
+			
+			<% if @correct %>
+				
+				<%= form_tag '/pages/new_post' do %>
+				
+					<%= text_field_tag :title, nil, placeholder: 'Awesome Title', id: 'text_field_pages' %> <br />
+					
+					<%= text_area_tag :content,
+					 nil, placeholder: 'Your ephiphany...', id: 'text_area_pages' %>
+					
+					<%= hidden_field_tag :page_id, @page.id %>
+					
+					<%= submit_tag 'Submit', id: 'submit_button' %>
+					
+				<% end %>
+			
+			<% end %>
+		
+			
+			<%= render @posts.reverse %>
+			
+		<% else %>
+		
+			<h1><%= @page.title %></h1>
+			
+			<p><%= filter_content_custom(@page.content) %></p>
+			
+		<% end %>
+	
 	</section>
 	
+	
 	</div>
-
 
 </body>
 </html>

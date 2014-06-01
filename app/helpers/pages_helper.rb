@@ -22,4 +22,8 @@ module PagesHelper
 		"/#{user_or_page.username}"
 	end
 	
+	def filter_content_custom(content)
+		content
+	end
+	
 end
