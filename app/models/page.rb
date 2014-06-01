@@ -1,5 +1,5 @@
 class Page < ActiveRecord::Base
-  attr_accessible :content, :title, :kind, :home
+  attr_accessible :content, :title, :kind, :home, :username
 	belongs_to :user
 	
 	PAGE_KIND = /blog|custom/
