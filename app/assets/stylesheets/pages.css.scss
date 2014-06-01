@@ -1,0 +1,182 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+	font-family: ariel, sans-serif;
+	padding:0px;
+}
+
+
+
+a {
+	text-decoration:none;
+}
+
+header {
+	background:rgba(0,0,0,0.4);
+	z-index:4;
+	h1 {
+		font-size:40px;
+		letter-spacing:2px;
+		text-align:center;
+		color: white;
+		position:relative;
+		top:40px;
+		text-shadow: 0px 0px 5px #777;
+	}
+}
+
+#return_button {
+	color:black;
+	border-radius:0px 5px 5px 0px;
+	-webkit-border-radius:0px 5px 5px 0px;
+	background:#013281;
+	padding:10px;
+	display:inline;
+	position:relative;
+	top:-30px;
+	right:40px;
+	box-shadow: -3px -3px 8px -2px black;
+	z-index:400;
+}
+
+#return_button:hover {
+	color:white;
+}
+
+#return_button:active {
+	top:-28px;
+}
+
+nav {
+	text-align: center;
+	li {
+		display:inline-block;
+		vertical-align: top;
+		padding-left: 15px;
+		padding-right: 15px;
+		margin-right: 1%;
+		margin-left: 1%;
+		z-index:999;
+		padding-top:20px;
+		padding-bottom:10px;
+		position:relative;
+		top:-20;
+		a {
+			color:white;
+			word-wrap:word-break;
+		}
+	}
+}
+
+section {
+	background: rgba(255,255,255, 0.8); 
+	padding: 20px;
+	margin-top:20px;
+	border-radius: 5px 5px 0px 0px;
+}
+
+#main {
+	width: 90%;
+	margin:auto;
+}
+
+body {
+	background:#333;
+	background: url(page_background.png);
+}
+
+#color_beam {
+	position:relative;
+	width: 120px;
+	height: 40px;
+	float:bottom;
+	background: #1F75FE;
+	z-index:3;
+}
+
+section h1 {
+	font-size:30px;
+	padding: 0px;
+	margin: 0px;
+}
+
+#kind_blog #horizontal {
+	border-top:1px solid #1F75FE;
+	border-bottom: 1px solid black;
+	padding: 16px 8%;
+}
+
+
+/* Flash Styles */
+
+.flash {
+	margin: auto;
+	margin-top:20px;
+	width:70%;
+	padding: 10px;
+	text-align:center;
+	border-radius:10px;
+	color: white;
+}
+
+.flash-success {
+	background: #A3FF85;
+	text-shadow: none;
+	color:black;
+}
+
+.flash-warning {
+	background: #FFFF66;
+	text-shadow: 0px 0px 3px #999900;
+}
+
+.flash-error {
+	background: #FF4D4D;
+	text-shadow: 0px 0px 3px #CC0000;
+}
+
+
+
+/* Form Styles */
+
+#text_area_pages {
+	font-size:20px;
+	width:80%;
+	border-radius:0px 0px 5px 5px;
+	padding-left:10px;
+	border: 1px solid black;
+	margin-left:3.33%;
+}
+
+#text_field_pages {
+	font-size:20px;
+	width:20%;
+	border: 1px solid black;
+	padding-left:10px;
+	margin-left:3.33%;
+}
+
+#submit_button {
+	width:9%;
+	font-size:16px;
+	padding: 10px 0px;
+	display:inline-block;
+	border:1px solid black;
+	border-radius:200px;
+	margin-left:3.33%;
+	background: white;
+	position:relative;
+	top:-20px;
+}
+
+#submit_button:hover {
+	color: #1F75FE;
+	border: 1px solid #1F75FE;
+}
+
+#submit_button:active {
+	top:-18;
+}
+
