@@ -5,6 +5,8 @@
 	
 	<%= render 'shared/page_error_messages' %>
 	
+	<%= f.hidden_field :username, value: @page.user.username %>
+	
 	<div><%= f.label :title %></div>
 	<div><%= f.text_field :title, placeholder: " A Great Page" %></div>
 	
