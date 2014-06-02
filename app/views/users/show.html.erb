@@ -11,4 +11,24 @@
 		id: 'edit_button' %></div></li>
 </nav>
 
+<% unless @user.pages.any? %>
+
+	<h3 style = 'text-align:center'>You do not have any pages yet.</h3>
+	
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	
+<% end %>
+
 <%= render '/shared/page_thumbs' %>
