@@ -8,6 +8,7 @@ $ ->
 	delete_on = false
 	home_on = false
 	links_on = true
+	edit_on = false
 	
 	# The Dropdown Menu
 	$('.dropdown').css 'opacity', '0'
@@ -17,63 +18,101 @@ $ ->
 		$('.dropdown').slideDown('fast')
 	$('nav').mouseleave -> 
 		$('.dropdown').slideUp('fast')
+		
+	$('.flash').css 'left', '-1000px'
+	
+	$('.flash').animate {
+		left: 0
+	}, 500
 	
 	# Deleting Pages
 	$('#delete_button').click ->
 		if delete_on
 			delete_on = false
+			edit_on = false
 			home_on = false
-			$('.ex_line').css 'box-shadow', 'none'
-			$('.page_image').css 'background', '#fff'
-			$('.ex_line').css 'background', '#9F3'
+			$('.page_thumb').removeClass('delete_thumb')
+			$('.page_thumb').addClass('normal_thumb')
 			$('.page_link div').css 'z-index', '200'
 		else
 			delete_on = true
+			edit_on = false
 			home_on = false
-			$('.ex_line').css 'box-shadow', 'none'
-			$('.page_image').css 'background', '#aa0000'
-			$('.ex_line').css 'background', 'black'
+			$('.page_thumb').removeClass('normal_thumb')
+			$('.page_thumb').removeClass('edit_thumb')
+			$('.page_thumb').removeClass('home_thumb')
+			$('.page_thumb').addClass('delete_thumb')
 			$('.page_link div').css 'z-index', '-2'
 			
 	# Ajax Requests
 	$('.page_thumb').click ->
 		if delete_on == true # Delete Page
 			$(this).hide()
+			$('.page_thumb').removeClass('delete_thumb')
+			$('.page_thumb').addClass('normal_thumb')
 			$('.page_link div').css 'z-index', '200'
-			$('.page_image').css 'background', '#fff'
 			page_id = $(this).attr('id')
 			page_id = page_id.replace /^page_/, ''
 			$.get "/pages/#{page_id}/delete"
 			$('body').addClass('ajax_completed')
 			delete_on = false
 		if home_on == true # Home Page
+			$('.page_thumb').removeClass('home_thumb')
+			$('.page_thumb').addClass('normal_thumb')
 			$('.page_link div').css 'z-index', '200'
-			$('.ex_line').css 'box-shadow', 'none'
-			$('.page_image').css 'background', '#fff'
-			$(this).children(".page_image").css 'background', 'lightblue'
-			$('.ex_line').css 'background', '#9F3'
+			$('.home_page_image').removeClass('home_page_image')
+			$(this).children('.page_image').addClass('home_page_image')
 			page_id = $(this).attr('id')
 			page_id = page_id.replace /^page_/, ''
 			$.get "/pages/#{page_id}/home_page"
 			$('body').addClass('ajax_completed')
 			home_on = false
+		if edit_on == true
+			$('.page_thumb').removeClass('edit_on')
+			$('.page_thumb').addClass('normal_thumb')
+			$('.page_link div').css 'z-index', '200' # Perhaps unecessary
+			page_id = $(this).attr('id')
+			page_id = page_id.replace /^page_/, ''
+			window.location.href = "/pages/#{page_id}/edit"
 			
 	# Choosing a home page
 	$('#home_button').click ->
 		if home_on
 			home_on = false
 			delete_on = false
-			$('.page_image').css 'background', '#fff'
-			$('.ex_line').css 'background', '#9F3'
-			$('.ex_line').css 'box-shadow', 'none'
+			edit_on = false
+			$('.page_thumb').removeClass('home_thumb')
+			$('.page_thumb').addClass('normal_thumb')
 			$('.page_link div').css 'z-index', '200'
 		else
 			home_on = true
 			delete_on = false
-			$('.page_image').css 'background', 'lightblue'
-			$('.ex_line').css 'background', 'white'
-			$('.ex_line').css 'box-shadow', '0px 0px 3px #333'
+			edit_on = false
+			$('.page_thumb').removeClass('normal_thumb')
+			$('.page_thumb').removeClass('edit_thumb')
+			$('.page_thumb').removeClass('delete_thumb')
+			$('.page_thumb').addClass('home_thumb')
 			$('.page_link div').css 'z-index', '-2'
+			
+		
+	$('#edit_button').click ->
+		if edit_on
+			home_on = false
+			delete_on = false
+			edit_on = false
+			$('.page_thumb').removeClass('edit_thumb')
+			$('.page_thumb').addClass('normal_thumb')
+			$('.page_link div').css 'z-index', '200'
+		else
+			home_on = false
+			delete_on = false
+			edit_on = true
+			$('.page_thumb').removeClass('normal_thumb')
+			$('.page_thumb').removeClass('home)thumb')
+			$('.page_thumb').removeClass('delete_thumb')
+			$('.page_thumb').addClass('edit_thumb')
+			$('.page_link div').css 'z-index', '-2'
+			
 
 			
 	# Page Titles

@@ -1,3 +1,0 @@
-module SassHelper
-	
-end

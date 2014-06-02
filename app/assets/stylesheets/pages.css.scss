@@ -4,7 +4,7 @@
 
 * {
 	font-family: ariel, sans-serif;
-	padding:0px;
+	padding:0;
 }
 
 
@@ -92,9 +92,9 @@ body {
 	width: 120px;
 	height: 40px;
 	float:bottom;
-	background: #1F75FE;
 	z-index:3;
 }
+
 
 section h1 {
 	font-size:30px;
@@ -103,10 +103,10 @@ section h1 {
 }
 
 #kind_blog #horizontal {
-	border-top:1px solid #1F75FE;
 	border-bottom: 1px solid black;
 	padding: 16px 8%;
 }
+
 
 
 /* Flash Styles */
@@ -119,6 +119,7 @@ section h1 {
 	text-align:center;
 	border-radius:10px;
 	color: white;
+	position:relative;
 }
 
 .flash-success {
@@ -171,12 +172,36 @@ section h1 {
 	top:-20px;
 }
 
-#submit_button:hover {
-	color: #1F75FE;
-	border: 1px solid #1F75FE;
-}
 
 #submit_button:active {
 	top:-18;
 }
+
+
+
+
+/* Posts */
+
+.post {
+	display:block;
+	background:white;
+	margin-top:20px;
+	box-shadow: 0px 0px 10px black;
+	padding: 1px 20px;
+	overflow:scroll;
+}
+
+.post:hover {
+	padding: 0px 19px;
+}
+
+.post h2 {
+	font-size:20px;
+}
+
+.post h2 span {
+	font-weight:normal;
+	font-size:16px;
+}
+
 

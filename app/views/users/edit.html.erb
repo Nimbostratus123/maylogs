@@ -23,6 +23,9 @@
 		<div><%= f.label :password_confirmation, 'Confirmation' %></div>
 		<div><%= f.password_field :password_confirmation %></div>
 		
+		<div><%= f.label :color, 'Color Theme' %></div>
+		<div><%= f.select(:color, [['Blue', '#1F75FE'], ['Green', '#9F3'], ['Orange', '#FFBF00'], ['Red', 'red'], ['Purple', '#9966CC'], ['Pink', '#FF007F'], ['Yellow', '#FFFF00']]) %></div>
+		
 		<%= f.submit "Change Identity", id: 'submit_button' %>
 		
 	<% end %>

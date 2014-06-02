@@ -8,6 +8,28 @@
 	
   	<%= javascript_include_tag "pages" %>
   	<%= csrf_meta_tags %>
+	
+	<style>
+	
+	#kind_blog #horizontal {
+		border-top:1px solid <%= color_helper(@user) %>;
+	}
+
+	#submit_button:hover {
+		color: color;
+		border: 1px solid <%= color_helper(@user) %>;
+	}
+
+	#color_beam {
+		background: <%= color_helper(@user) %>;
+	}
+	
+	.post:hover {
+		border: 1px solid <%= color_helper(@user) %>;
+	}
+	
+	</style>
+	
 </head>
 
 <body>
@@ -68,14 +90,14 @@
 			<p id ='horizontal'><%= @page.content %></p>
 			
 			
-			<% if @correct %>
+			<% if @correct && @page.kind == 'blog' %>
 				
 				<%= form_tag '/pages/new_post' do %>
 				
-					<%= text_field_tag :title, nil, placeholder: 'Awesome Title', id: 'text_field_pages' %> <br />
+					<%= text_field_tag :title, nil, placeholder: 'Post Title', id: 'text_field_pages' %> <br />
 					
 					<%= text_area_tag :content,
-					 nil, placeholder: 'Your ephiphany...', id: 'text_area_pages' %>
+					 nil, placeholder: 'New Post', id: 'text_area_pages' %>
 					
 					<%= hidden_field_tag :page_id, @page.id %>
 					

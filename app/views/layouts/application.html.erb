@@ -28,7 +28,7 @@
 			<li class = 'dropdown_trigger must_light_up'><%= link_to 'Account', '#' %></li>
 			<div class = 'dropdown_trigger target_zone'></div>
 			<ul class = 'dropdown'>
-				<li><%= link_to 'Profile', user_path(current_user) %></li>
+				<li><%= link_to 'Profile', username_path(current_user) %></li>
 				<li><%= link_to 'Settings', edit_user_path(current_user) %></li>
 				<div class = 'divider'></div>
 				<li><%= link_to 'Log Out', log_out_path, method: 'delete' %></li>

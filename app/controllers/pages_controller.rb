@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-	before_filter :signed_in_user, except: [:display]
+	before_filter :signed_in_user, except: [:display, :username_root]
 	before_filter :correct_user, only: [:edit, :home_page, :update, :delete]
 	
   def new
@@ -22,9 +22,21 @@ class PagesController < ApplicationController
   end
 
   def edit
+		@page_id = 'edit_page'
+		@title = 'Edit Page'
+		@page = Page.find(params[:id])
   end
 
   def update
+		@page = Page.find(params[:id])
+		if @page.update_attributes(params[:page])
+			flash[:success] = 'You have successfully edited the page.'
+			redirect_to root_url
+		else
+			@page_id = 'edit_page'
+			@title = 'Edit Page'
+			render 'edit'
+		end
   end
 	
 	def home_page
@@ -48,9 +60,7 @@ class PagesController < ApplicationController
 		@title = @page.title
 		@posts = @page.posts
 		@page_id = 'page_show'
-		if User.find_by_username(params[:username]) == current_user
-			@correct = true 
-		end
+		@correct = (@user == current_user)
 		render 'display', layout: false # page_username_path(User.find_by_username(params[:username]).home_page)
 	end
 	
@@ -68,12 +78,11 @@ class PagesController < ApplicationController
 	
 	def display
 		@page = Page.find(params[:id])
+		@user = User.find(@page.user_id)
 		@title = @page.title
 		@posts = @page.posts
 		@page_id = 'page_show'
-		if User.find(Page.find(params[:id]).user_id) == current_user
-			@correct = true 
-		end
+		@correct = (@user == current_user)
 		render layout: false
 	end
 	

@@ -1,7 +1,10 @@
 
 
 <div class = 'post'>
-	<h2><%= post.title %></h2>
-	<p class = 'content'><%= post.content %></p>
-	<p class = 'time'>Posted <%= time_ago_in_words(post.created_at) %> ago.</p>
+	<div class = 'top_post'>
+	<h2><%= post.title %><span> — Posted <%= time_ago_in_words(post.created_at) %> ago.</span></h2>
+	</div>
+	<p class = 'content'><%= filter_content_blog(post.content) %></p>
+	<div class = 'bottom_post'>
+	</div>
 </div>
