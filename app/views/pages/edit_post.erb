@@ -7,15 +7,13 @@
 		
 		<span> — Posted <%= time_ago_in_words(@post.created_at) %> ago.</span>
 		
-		<% if @correct %>
-		<span class = 'often_hidden'>
+		<!-- <span class = 'often_hidden'>
 			<%= link_to 'Edit', no_link_helper, class: "edit_post_link",
 			 id: "edit_post_#{@post.id}" %>
 			&nbsp;&nbsp;—&nbsp;&nbsp;
 			<%= link_to 'Delete', no_link_helper, class: 'delete_post_link',
 			 id: "delete_post_#{@post.id}" %>
-		</span>
-		<% end %>
+		</span> -->
 	
 	</h2>
 	
