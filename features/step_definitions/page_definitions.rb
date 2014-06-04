@@ -47,3 +47,24 @@ end
 Then /^the page should be the home page$/ do
 	Page.find(@page.id).home.should be_true
 end
+
+
+# Scenario Edit Page #
+
+And /^the user chooses to edit a page$/ do
+	visit root_path
+	find('#edit_button').click
+	find("#page_#{@page.id}").click
+	wait_for_ajax
+end
+
+When /^the user submits the edit form$/ do
+	fill_in 'Title', with: 'Best Title Ever'
+	fill_in 'Content', with: @page.content
+	click_button "Edit Page"
+	wait_for_ajax
+end
+
+Then /^the page should be edited$/ do
+	expect(Page.find(@page.id).title).to eq 'Best Title Ever'
+end

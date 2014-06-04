@@ -17,12 +17,20 @@ $ ->
 	$('#color_beam').css 'left', proper_left - 2
 	$('#current_page_link').children('a').css 'color', 'black'
 	$('#text_field_pages').css 'opacity', 0
+	$('.edit_text_area').css 'height', '130px'
+	
+	
+	
+	# Flash Animation
 	
 	$('.flash').css 'left', '-1000px'
 	
 	$('.flash').animate {
 		left: 0
 	}, 1500, 'easeOutElastic'
+	
+	
+	# Dynamic New Post Form
 	
 	$('#text_area_pages').focus ->
 		$(this).animate {
@@ -31,10 +39,14 @@ $ ->
 		$('#text_field_pages').animate {
 			opacity: 1
 		}
+		
 	$('#text_area_pages').focusout ->
 		$(this).animate {
 				height: 49
-			}, 200
+			}, 200, 'easeInExpo'
+
+	
+	# Color Beam
 	
 	$('nav li').mouseenter ->
 		temp_width = $(this).width() + 38
@@ -60,3 +72,35 @@ $ ->
 			top: $('#current_page_link').offset().top - 90
 			}, 700, 'easeOutElastic', ->  #use that for callback
 		$('#color_beam').clearQueue()
+		
+		
+		
+	
+	# Deleting Posts
+	
+	$('.delete_post_link').click ->
+		certainty = confirm 'Are you sure?'
+		if certainty
+			post_id = $(this).attr('id')
+			post_id = post_id.replace /delete_post_/, ''
+			$(this).parent().parent().parent().parent().hide()
+			$('.flash').css 'opacity', '0'
+			$.get "/pages/delete_post?post_id=#{post_id}"
+			
+			
+	# Editing Posts
+	
+	$('.edit_post_link').click ->
+		$(this).parents('.post').children('p').css 'display', 'none'
+		$(this).parents('h2').children('span').css 'display', 'none'
+		$(this).parents('.post').children('form').css 'display', 'block'
+		
+	$('.edit_submit_button').click ->
+		this_var = $(this)
+		id_var = $(this).siblings('.edit_hidden_field').val()
+		title_var = $(this).siblings('.edit_text_field').val()
+		content_var = $(this).siblings('.edit_text_area').val()
+		content_var = content_var.replace /[\r\n]/g, ' ()NEWLINE() '
+		$.get "/pages/edit_post?id=#{id_var}&title=#{title_var}&content=#{content_var}", (data) ->
+			this_var.parents('.post').before(data)
+			this_var.parents('.post').hide()

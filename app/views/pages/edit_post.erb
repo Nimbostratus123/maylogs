@@ -3,37 +3,36 @@
 <div class = 'post'>
 	<div class = 'top_post'>
 		
-	<h2><%= post.title %>
+	<h2><%= @post.title %>
 		
-		<span> — Posted <%= time_ago_in_words(post.created_at) %> ago.</span>
+		<span> — Posted <%= time_ago_in_words(@post.created_at) %> ago.</span>
 		
 		<% if @correct %>
 		<span class = 'often_hidden'>
 			<%= link_to 'Edit', no_link_helper, class: "edit_post_link",
-			 id: "edit_post_#{post.id}" %>
+			 id: "edit_post_#{@post.id}" %>
 			&nbsp;&nbsp;—&nbsp;&nbsp;
 			<%= link_to 'Delete', no_link_helper, class: 'delete_post_link',
-			 id: "delete_post_#{post.id}" %>
+			 id: "delete_post_#{@post.id}" %>
 		</span>
 		<% end %>
 	
 	</h2>
 	
 	</div>
-	<p class = 'content'><%= filter_content_blog(post.content) %></p>
+	<p class = 'content'><%= filter_content_blog(@post.content) %></p>
 	
 	<%= form_tag '/pages/edit_post', class: "edit_post_form" do %>
 		
-		<%= text_field_tag :title, post.title, class: 'edit_text_field' %>
+		<%= text_field_tag :title, @post.title, class: 'edit_text_field' %>
 		<br />
-		<%= text_area_tag :content, post.content, class: 'edit_text_area' %>
+		<%= text_area_tag :content, @post.content, class: 'edit_text_area' %>
 		
-		<%= hidden_field_tag :id, post.id, class: 'edit_hidden_field' %>
+		<%= hidden_field_tag :id, @post.id, class: 'edit_hidden_field' %>
 		
 		<%= link_to 'Edit Post', no_link_helper, class: 'submit_button edit_submit_button' %>
 
 	<% end %>
-	
 	
 </div>
 

@@ -38,6 +38,7 @@ module PagesHelper
 		content = content.gsub(/script/i, 'scr¡pt')
 		content = content.gsub(/onclick/i, 'oncl¡ck')
 		content = content.gsub(/\n/, "<br />")
+		content = content.gsub(/\(\)NEWLINE\(\)/, "<br />" )
 		content.match(/\/\/image (\S*)\b/)
 		content = content.gsub(/\/\/image \S*\b/, "<img src ='#{$1}' class = 'image' alt = 'image' />")
 		content = content.gsub(/\(\(i/, '<i>')

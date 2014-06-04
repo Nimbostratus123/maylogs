@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 	before_filter :signed_in_user, except: [:display, :username_root]
 	before_filter :correct_user, only: [:edit, :home_page, :update, :delete]
+	before_filter :correct_user_for_posts, only: [:edit_post, :delete_post]
 	
   def new
 		@page_id = 'new_page'
@@ -76,6 +77,20 @@ class PagesController < ApplicationController
 		end
 	end
 	
+	def delete_post
+		Post.find(params[:post_id]).destroy
+	end
+	
+	def edit_post
+		@post = Post.find(params[:id])
+		@post.title = params[:title]
+		@post.content = params[:content]
+		unless @post.save
+			@message = 'Something has gone wrong—your post was not changed. Ensure it has both a title and content.'
+		end
+		render layout: false
+	end
+	
 	def display
 		@page = Page.find(params[:id])
 		@user = User.find(@page.user_id)
@@ -104,4 +119,15 @@ class PagesController < ApplicationController
 			end
 		end
 		
+		def correct_user_for_posts
+			if params[:post_id]
+				@user = User.find(Page.find(Post.find(params[:post_id]).page_id).user_id)
+			else
+				@user = User.find(Page.find(Post.find(params[:id]).page_id).user_id)
+			end
+			unless @user == current_user
+				redirect_to root_url
+				flash[:error] = 'You do not have permission to access that page.'
+			end
+		end
 end

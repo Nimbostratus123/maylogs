@@ -10,11 +10,12 @@ Feature: Pages
 		When the user submits the form
 		Then there should be a new page
 	
-	# Scenario: Edit Page
-	# 	Given the user clicks on a page
-	# 	When the user submits the edit form
-	# 	Then the page should be edited
-	
+	@javascript
+	Scenario: Edit Page
+		Given the user has already made a page
+			And the user chooses to edit a page
+		When the user submits the edit form
+		Then the page should be edited
 	
 	
 	# I cannot test ajax, but this works: #
@@ -27,7 +28,3 @@ Feature: Pages
 		
 	
 	
-	
-	#Scenario: Customize Style
-	
-

@@ -6,6 +6,9 @@ Maylogs::Application.routes.draw do
 		collection do
 			get 'new'
 			post 'new_post'
+			get 'edit_post'
+			get 'delete_post'
+			
 		end
 		
 		member do

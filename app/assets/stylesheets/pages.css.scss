@@ -142,7 +142,7 @@ section h1 {
 
 /* Form Styles */
 
-#text_area_pages {
+#text_area_pages, .edit_text_area {
 	font-size:20px;
 	width:80%;
 	border-radius:0px 0px 5px 5px;
@@ -151,7 +151,7 @@ section h1 {
 	margin-left:3.33%;
 }
 
-#text_field_pages {
+#text_field_pages, .edit_text_field {
 	font-size:20px;
 	width:20%;
 	border: 1px solid black;
@@ -159,7 +159,7 @@ section h1 {
 	margin-left:3.33%;
 }
 
-#submit_button {
+#submit_button, .submit_button {
 	width:9%;
 	font-size:16px;
 	padding: 10px 0px;
@@ -175,6 +175,15 @@ section h1 {
 
 #submit_button:active {
 	top:-18;
+}
+
+.edit_post_form {
+	display:none;
+}
+
+.submit_button {
+	color: black;
+	text-align:center;
 }
 
 
@@ -205,3 +214,22 @@ section h1 {
 }
 
 
+
+.often_hidden {
+	float:right;
+	color: #777;
+	opacity: 0;
+	transition: opacity .2s;
+	
+	a {
+		color: #999;
+	}
+
+	a:hover {
+		text-decoration:underline;
+	}
+}
+
+.post:hover .often_hidden {
+	opacity: 1;
+}
