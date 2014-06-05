@@ -133,12 +133,15 @@ class PagesController < ApplicationController
 		end
 		
 		def ensure_presence
-			@user = User.find_by_username(params[:username]) || render_404
-			if params[:id]
-				if @page = Page.find_by_id(params[:id])
-					@page.user == @user || render_404
-				else
-					render_404
+			if params[:username]
+				@user = User.find_by_username(params[:username]) || render_404 and return
+				if params[:id]
+					if @page = Page.find_by_id(params[:id])
+						@page.user == @user || render_404
+					else
+						render_404
+						return
+					end
 				end
 			end
 		end
