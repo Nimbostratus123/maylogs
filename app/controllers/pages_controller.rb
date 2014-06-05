@@ -2,6 +2,7 @@ class PagesController < ApplicationController
 	before_filter :signed_in_user, except: [:display, :username_root]
 	before_filter :correct_user, only: [:edit, :home_page, :update, :delete]
 	before_filter :correct_user_for_posts, only: [:edit_post, :delete_post]
+	before_filter :ensure_presence, only: [:username_root, :display]
 	
   def new
 		@page_id = 'new_page'
@@ -102,7 +103,7 @@ class PagesController < ApplicationController
 	end
 	
 	private
-		
+	
 		def signed_in_user
 			unless signed_in?
 				store_location
@@ -130,4 +131,20 @@ class PagesController < ApplicationController
 				flash[:error] = 'You do not have permission to access that page.'
 			end
 		end
+		
+		def ensure_presence
+			@user = User.find_by_username(params[:username]) || render_404
+			if params[:id]
+				if @page = Page.find_by_id(params[:id])
+					@page.user == @user || render_404
+				else
+					render_404
+				end
+			end
+		end
+		
+		def render_404
+			render 'public/404.html'
+		end
+		
 end

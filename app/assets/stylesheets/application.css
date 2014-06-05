@@ -569,3 +569,13 @@ div.delete_thumb div.used_page_image {
 	-webkit-border-radius:0px;
 }
 
+
+
+	/* Error Dialog */
+
+.error_dialog h1 {
+	color:red;
+	border-bottom:black 1px solid;
+	text-align:center;
+	font-size:50px;
+}

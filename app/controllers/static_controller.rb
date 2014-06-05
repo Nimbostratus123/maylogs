@@ -15,6 +15,7 @@ class StaticController < ApplicationController
   end
 
   def reference
+		
 		@title = 'Reference'
 		@page_id = @title.downcase
   end
